@@ -1,0 +1,78 @@
+.body {
+    text-align: center;
+    padding-left: 25%;
+    padding-right: 50px;
+    width: 50%;
+}
+
+.content {
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+}
+
+.network_info {
+    border-style: solid;
+    height: 150px;
+    /* margin-left: 15%; */
+    /* margin-right: 15%; */
+}
+
+.size_selector {
+    padding-top: 20px;
+}
+
+.split {
+    width: 25%;
+    position: fixed;
+    overflow-x: hidden;
+    padding-left:50%;
+}
+
+.left {
+    text-align: left;
+    padding-left: 15%;
+    float: left;
+}
+
+.right {
+    text-align: left;
+    padding-right: 15%;
+    float: right;
+    /* padding-bottom: 20px; */
+    /* margin-top: -3%; */
+    margin-top: -15px;
+}
+
+.network_h2_test_div {
+    /* margin: 2%; */
+    padding-bottom: 5%;
+}
+
+.network_h1_test_div {
+    padding-bottom: 5%;   
+}
+
+.footer {
+    /* padding-left: 25%; */
+}
+
+.info_div {
+    margin: 2%;
+    padding-top: 45px;
+    /* float: left; */
+}
+
+.abouts {
+    margin: 2%;
+    float: left;
+}
+
+.tester {
+    /* height: 500px; */
+    overflow: scroll;
+}
+
+.buttons {
+    margin: 5%;
+}

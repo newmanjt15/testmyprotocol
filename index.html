@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <title>Test My Protocol</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="./test_environment_favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./test_environment_favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./test_environment_favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./test_environment_favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./test_environment_favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./test_environment_favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./test_environment_favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./test_environment_favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./test_environment_favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./test_environment_favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./test_environment_favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./test_environment_favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./test_environment_favicon/favicon-16x16.png">
+    <link rel="manifest" href="./test_environment_favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./test_environment_favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="./css/test_sheet.css">
+    </head>
+    <body>
+        <div class="body">
+            <h1>HTTP Protocol Version Testing Platform</h1>
+            <h2>Measure and Compare HTTP Performance</h2>
+            <br>
+
+            <div class="content">
+
+                <div class="network_info">
+
+                    <h3>Network Statistics</h3>
+            
+                    <div class="left">
+
+                        <label id="status_update">Testing Network...</label>
+
+                        <br>
+
+                        <div id="network_metrics">
+
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="right">
+
+                        <div class="network_h1_test_div">
+                            <button id="h1_test">Test HTTP/1.1</button>
+                        </div>
+                        <div class="network_h2_test_div">
+                            <button id="h2_test">Test HTTP/2</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br><br>
+
+                <div class="size_selector">
+                
+                    <select id="size" name="size">
+                        <option value="1">1 KB</option>
+                        <option value="5">5 KB</option>
+                        <option value="15">15 KB</option>
+                        <option value="25">25 KB</option>
+                        <option value="50">50 KB</option>
+                        <option value="75">75 KB</option>
+                        <option value="100">100 KB</option>
+                    </select>
+                    <input id="num" type="text" placeholder="Number of Objects"></input>
+                    <br>
+                    <div class="buttons">
+                        <button id="start" disabled>Start Test</button>
+                        <button id="reset" disabled>Reset Test</button>
+                    </div>
+
+                </div>
+
+
+                <br><br>
+
+                <div id="testing_platform" class="tester" hidden>
+
+                </div>
+
+                <div id="footer" class="footer">
+                    <div class="info_div">
+                        <button id="more_info">More Info</button>
+                    </div>
+                    <!-- <div class="abouts"> -->
+                    <!--     <a href="http://aqualab.cs.northwestern.edu"><img height="100px" width="100px" src="imgs/AquaLab1.png" /></a> -->
+                    <!-- </div> -->
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="./boomerang-master/boomerang.js" type="text/javascript"></script>
+    <script src="./boomerang-master/plugins/bw.js" type="text/javascript"></script>
+    <script src="./boomerang-master/plugins/navtiming.js" type="text/javascript"></script>
+    <script src="js/controller.js" type="text/javascript"></script>
+</html>
