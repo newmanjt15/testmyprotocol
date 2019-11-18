@@ -818,6 +818,7 @@ BOOMR_check_doc_domain();
 					// plugin exists and has an init method
 					if (typeof this.plugins[k].init === "function") {
 						try {
+                            console.log("initializing: " + k);
 							this.plugins[k].init(config);
 						}
 						catch (err) {
@@ -1045,6 +1046,7 @@ BOOMR_check_doc_domain();
 			else {
 				impl.errors[err] = 1;
 			}
+            console.log(err);
 		},
 
 		isCrossOriginError: function(err) {
@@ -1096,6 +1098,14 @@ BOOMR_check_doc_domain();
 		hasVar: function(name) {
 			return impl.vars.hasOwnProperty(name);
 		},
+
+        getVar: function(name) {
+            if (this.hasVar(name)){
+                return impl.vars[name];
+            }else{
+                return null;
+            }
+        },
 
 		requestStart: function(name) {
 			var t_start = BOOMR.now();
@@ -1165,17 +1175,18 @@ BOOMR_check_doc_domain();
 			// At this point someone is ready to send the beacon.  We send
 			// the beacon only if all plugins have finished doing what they
 			// wanted to do
-			for (k in this.plugins) {
-				if (this.plugins.hasOwnProperty(k)) {
-					if (impl.disabled_plugins[k]) {
-						continue;
-					}
-					if (!this.plugins[k].is_complete()) {
-						BOOMR.debug("Plugin " + k + " is not complete, deferring beacon send");
-						return false;
-					}
-				}
-			}
+            //      jtn- disable this as we delay the dns test anyway
+			// for (k in this.plugins) {
+			// 	if (this.plugins.hasOwnProperty(k)) {
+			// 		if (impl.disabled_plugins[k]) {
+			// 			continue;
+			// 		}
+			// 		if (!this.plugins[k].is_complete()) {
+			// 			BOOMR.debug("Plugin " + k + " is not complete, deferring beacon send");
+			// 			return false;
+			// 		}
+			// 	}
+			// }
 
 			// For SPA apps, don't strip hashtags as some SPA frameworks use #s for tracking routes
 			// instead of History pushState() APIs. Use d.URL instead of location.href because of a
@@ -1228,10 +1239,13 @@ BOOMR_check_doc_domain();
 			// If we reach here, all plugins have completed
 			impl.fireEvent("before_beacon", impl.vars);
 
+            //jtn - return early
+            return true;
+
 			// Don't send a beacon if no beacon_url has been set
 			// you would do this if you want to do some fancy beacon handling
 			// in the `before_beacon` event instead of a simple GET request
-			BOOMR.debug("Ready to send beacon: " + BOOMR.utils.objectToString(impl.vars));
+			// BOOMR.debug("Ready to send beacon: " + BOOMR.utils.objectToString(impl.vars));
 			if (!impl.beacon_url) {
 				BOOMR.debug("No beacon URL, so skipping.");
 				return true;

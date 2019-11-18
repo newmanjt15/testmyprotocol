@@ -1,8 +1,28 @@
+.page {
+    background-color: #69737F;    
+}
+
+.footer {
+    text-align: center;
+}
+
+.footer_span {
+    margin-left:-10px;
+}
+
 .body {
     text-align: center;
-    padding-left: 25%;
-    padding-right: 50px;
-    width: 50%;
+    /* padding-left: 25%; */
+    /* padding-right: 50px; */
+    /* width: 50%; */
+    margin-top: 5rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: #69737F;
+}
+
+.header {
+    color: white;
 }
 
 .content {
@@ -76,3 +96,105 @@
 .buttons {
     margin: 5%;
 }
+
+.start_button {
+    font-size: 50px;
+    /* background-color: green; */
+    background-color: #225642;
+    color: white;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+}
+
+.test_frame {
+    /* border-style: solid; */
+    border-style: inset;
+    height: 500px;
+    width: 100%;
+    overflow: scroll;
+    background-color: white;
+}
+
+.test_steps {
+    /* text-align: left; */
+    padding-left: 10px;
+    padding-bottom: 50px;
+}
+
+.table_results {
+    font-size: 24px;
+}
+
+.test_results {
+    padding-left: 25px;
+}
+
+.label {
+    margin-bottom: 50px;
+}
+
+.loader {
+    height: 50px;
+    width: 100px;
+    text-align: right;
+}
+
+.results {
+
+}
+
+.run_tests {
+    font-size: 25px;
+    /* background-color: green; */
+    background-color: #225642;
+    color: white;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+}
+
+.run_tests[disabled] {
+    font-size: 25px;
+    background-color: red;
+    color: white;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+
+}
+
+.more_info {
+    font-size: 25px;
+    /* background-color: green; */
+    /* background-color: #225642; */
+    background-color: #0080ff;
+    color: white;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;   
+}
+
+.text {
+    color: white;
+}
+
+.status {
+    color: white;    
+    font-size: 50px;
+    padding: 5px;
+}
+
+.update_div {
+    padding-bottom: 50px;
+}
+
+.hit_button {
+    font-size: 25px;
+    background-color: #621e81;
+    color: white;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;   
+}
+

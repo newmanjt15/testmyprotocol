@@ -45,7 +45,8 @@
 	// abuse arrays to do the latency test simply because it avoids a bunch of
 	// branches in the rest of the code.
 	// I'm sorry Douglas
-	images.l = { name: "image-l.gif", size: 35, timeout: 1000 };
+	// images.l = { name: "image-l.gif", size: 35, timeout: 1000 };
+	images.l = { name: "image-l.gif", size: 35, timeout: 5000 };
 
 	// private object
 	impl = {
@@ -521,6 +522,15 @@
 			// Turn image url into an absolute url if it isn't already
 			a = BOOMR.window.document.createElement("a");
 
+            //jtn - first, remove any previous http_version
+            BOOMR.removeVar("http_version");
+
+            //jtn - then, add this http_version
+            BOOMR.addVar("http_version", http_version);
+
+            console.log("http_version: " + http_version);
+            console.log("stored http_version: " + BOOMR.getVar("http_version"));
+
             //jtn - hack to test either h1 or h2
             if (http_version === "h2"){
                 a.href = "https://www.testmyprotocol.com/boomerang-master/images/";
@@ -549,7 +559,7 @@
 			impl.base_url = a.href;
 			impl.running = true;
 			
-			setTimeout(this.abort, impl.timeout);
+			// setTimeout(this.abort, impl.timeout);
 			
 			//added by jtn to hack in order to run multiple latency tests
 			impl.latency_runs = 10;

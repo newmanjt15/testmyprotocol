@@ -1,0 +1,229 @@
+<html class="page">
+    <head>
+        <title>Test My Protocol</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="./test_environment_favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./test_environment_favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./test_environment_favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./test_environment_favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./test_environment_favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./test_environment_favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./test_environment_favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./test_environment_favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./test_environment_favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./test_environment_favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./test_environment_favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./test_environment_favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./test_environment_favicon/favicon-16x16.png">
+    <!-- <link rel="manifest" href="./test_environment_favicon/manifest.json"> -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./test_environment_favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="./css/test_sheet.css">
+    </head>
+    <body>
+        <div class="body">
+            <h1 class="header">HTTP Protocol Version Testing Platform</h1>
+            <h2 class="header">Measure and Compare HTTP Performance</h2>
+            <div class="results">
+                <div class="test_steps" id="test_steps">
+                    <div id="results" class="test_frame">
+                        <h2>Average Results</h2>
+                        <table class="table_results">
+                            <tr>
+                                <th scope="col">Number of Runs</th>
+                                <th scope="col"><label id="num_runs"></label></th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Test</th>
+                                <th scope="col">HTTP/1.1</th>
+                                <th scope="col">HTTP/2</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Latency
+                                </td>
+                                <td>
+                                    <label id="h1_latency_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_latency_results"></label>
+                                </td>
+                            </tr> 
+                            <tr>
+                                <td>
+                                    Latency Std Dev
+                                </td>
+                                <td>
+                                    <label id="h1_lat_err_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_lat_err_results"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Bandwidth
+                                </td>
+                                <td>
+                                    <label id="h1_bandwidth_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_bandwidth_results"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Bandwidth Std Dev
+                                </td>
+                                <td>
+                                    <label id="h1_bw_err_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_bw_err_results"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Successive Large Image Test (1MB)
+                                </td>
+                                <td>
+                                    <label id="h1_successive_large_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_successive_large_results"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Successive Large Image Test (1MB) Std Dev
+                                </td>
+                                <td>
+                                    <label id="h1_successive_large_err_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_successive_large_err_results"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Successive Large Image Test (1MB) Total Time
+                                </td>
+                                <td>
+                                    <label id="h1_successive_large_total_time_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_successive_large_total_time_results"></label>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>
+                                    Concurrent Large Image Test (1MB)
+                                </td>
+                                <td>
+                                    <label id="h1_concurrent_large_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_concurrent_large_results"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Concurrent Large Image Test (1MB) Std Dev
+                                </td>
+                                <td>
+                                    <label id="h1_concurrent_large_err_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_concurrent_large_err_results"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Concurrent Large Image Test (1MB) Total Time
+                                </td>
+                                <td>
+                                    <label id="h1_concurrent_large_total_time_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_concurrent_large_total_time_results"></label>
+                                </td>
+                            </tr>
+                           <tr>
+                                <td>
+                                    Successive Small Image Test (1MB)
+                                </td>
+                                <td>
+                                    <label id="h1_successive_small_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_successive_small_results"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Successive Small Image Test (1MB) Std Dev
+                                </td>
+                                <td>
+                                    <label id="h1_successive_small_err_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_successive_small_err_results"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Successive Small Image Test (1MB) Total Time
+                                </td>
+                                <td>
+                                    <label id="h1_successive_small_total_time_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_successive_small_total_time_results"></label>
+                                </td>
+                            </tr>
+                           <tr>
+                                <td>
+                                    Concurrent Small Image Test (1MB)
+                                </td>
+                                <td>
+                                    <label id="h1_concurrent_small_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_concurrent_small_results"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Concurrent Small Image Test (1MB) Std Dev
+                                </td>
+                                <td>
+                                    <label id="h1_concurrent_small_err_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_concurrent_small_err_results"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Concurrent Small Image Test (1MB) Total Time
+                                </td>
+                                <td>
+                                    <label id="h1_concurrent_small_total_time_results"></label>
+                                </td>
+                                <td>
+                                    <label id="h2_concurrent_small_total_time_results"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <div id="div4" class="footer">
+            <span class="footer_span"><a href="http://aqualab.cs.northwestern.edu">Aqualab</a><img src="imgs/aqualab2.png" style="height:30px;margin-left:20px;margin-right:20px;vertical-align:middle;"><a href="http://aqualab.cs.northwestern.edu"></a> 2019.</span>
+        </div>
+
+    </body>
+    <script src="boomerang-master/boomerang.js" type="text/javascript"></script>
+    <script src="js/utilities.js" type="text/javascript"></script>
+    <script src="js/results.js" type="text/javascript"></script>
+</html>

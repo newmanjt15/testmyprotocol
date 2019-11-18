@@ -37,6 +37,7 @@ http://developer.yahoo.net/blog/archives/2009/11/guide_to_dns.html
 			    cache_bust = (new Date().getTime()) + "." + (Math.random());
 
 			impl.gen_url = impl.base_url.replace(/\*/, random);
+            console.log("DNS gen_url: " + impl.gen_url);
 
 			impl.img = new Image();
 			impl.img.onload = impl.A_loaded;
@@ -93,16 +94,23 @@ http://developer.yahoo.net/blog/archives/2009/11/guide_to_dns.html
 				return this;
 			}
 
+            //jtn - don't care about https
 			// do not run test over https
-			if (BOOMR.window.location.protocol === "https:") {
-				impl.complete = true;
-				return this;
-			}
+			// if (BOOMR.window.location.protocol === "https:") {
+			// 	impl.complete = true;
+			// 	return this;
+			// }
 
-			BOOMR.subscribe("page_ready", impl.start, null, impl);
+            //jtn - hack here to do it on command
+			// BOOMR.subscribe("page_ready", impl.start, null, impl);
 
 			return this;
 		},
+
+        //jtn - added to revel impl.start to outside files
+        start: function(){
+            impl.start();
+        },
 
 		is_complete: function() {
 			return impl.complete;

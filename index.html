@@ -1,4 +1,4 @@
-<html>
+<html class="page">
     <head>
         <title>Test My Protocol</title>
     <link rel="apple-touch-icon" sizes="57x57" href="./test_environment_favicon/apple-icon-57x57.png">
@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./test_environment_favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="./test_environment_favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./test_environment_favicon/favicon-16x16.png">
-    <link rel="manifest" href="./test_environment_favicon/manifest.json">
+    <!-- <link rel="manifest" href="./test_environment_favicon/manifest.json"> -->
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="./test_environment_favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -22,84 +22,291 @@
     </head>
     <body>
         <div class="body">
-            <h1>HTTP Protocol Version Testing Platform</h1>
-            <h2>Measure and Compare HTTP Performance</h2>
+            <h1 class="header">HTTP Protocol Version Testing Platform</h1>
+            <h2 class="header">Measure and Compare HTTP Performance</h2>
             <br>
 
             <div class="content">
 
-                <div class="network_info">
-
-                    <h3>Network Statistics</h3>
-            
-                    <div class="left">
-
-                        <label id="status_update">Testing Network...</label>
-
-                        <br>
-
-                        <div id="network_metrics">
-
-                        </div>
-                    </div>
-
+                <button id="start" class="start_button">Start</button>
+                <div id="update_div" class="update_div" hidden>
+                    <label id="status_update" class="status">Status</label>
                     <br>
+                    <button id="reset" class="run_tests" disabled >Run Tests</button>
+                    <button id="info" class="more_info" >More Info</button>
+                    <button id="hit_code" class="hit_button">Collect HIT Code</button>
+                </div>
+                <div class="test_frame" id="test_frame" hidden>
+                    <div class="test_steps" id="test_steps">
+                        <h2>Network Tests</h2>
+                        <table border="2" class="table_results">
+                            <tr>
+                                <th scope="col">Protocol</th>
+                                <th scope="col">Latency Mean (ms)</th>
+                                <th scope="col">Latency StdDev (ms)</th>
+                                <th scope="col">Bandwidth Mean</th>
+                                <th scope="col">Bandwidth StdDev</th>
+                            </tr>
+                            <tr>
+                                <!-- Latency and BW test over HTTP/1.1 using Boomerang -->
+                                <td>
+                                    <label>HTTP/1.1</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h1_tests" hidden/>
+                                    <p id="h1_test_latency" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_test_latency_err" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_test_bandwidth" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_test_bandwidth_err" class="test_results"></p>
+                                </td>
+                                <!-- <td> -->
+                                <!--     <img class="loader" id="h1_tests" hidden/> -->
+                                <!--     <p id="h1_test_results" class="test_results"></p> -->
+                                <!-- </td> -->
+                            </tr>
+                            <tr>
+                                <!-- Latency and BW test over HTTP/2 using Boomerang -->
+                                <td>
+                                    <label>HTTP/2</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h2_tests" hidden/>
+                                    <p id="h2_test_latency" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_test_latency_err" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_test_bandwidth" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_test_bandwidth_err" class="test_results"></p>
+                                </td>
 
-                    <div class="right">
+                                <!-- <td> -->
+                                <!--     <img class="loader" id="h2_tests" hidden/> -->
+                                <!--     <p id="h2_test_results" class="test_results"></p> -->
+                                <!-- </td> -->
+                            </tr>
+                        </table>
+                        <h2>HTTP Object Tests</h2>
+                        <table border="2" class="table_results">
+                            <tr>
+                                <th scope="col">Test</th>
+                                <th scope="col">Protocol</th>
+                                <th scope="col">Total Time (ms)</th>
+                                <th scope="col">Load Time Mean (ms)</th>
+                                <th scope="col">Load Time StdDev (ms)</th>
+                            </tr>
+                            <tr>
+                                <!-- Loading large images (1MB) with HTTP/1.1 in succession -->
+                                <td>
+                                    <label class="loader">Successive Large Images (1MB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/1.1</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h1_successive_large_image_tests" hidden/>
+                                    <p id="h1_successive_large_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_successive_large_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_successive_large_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
+                                <!-- <td> -->
+                                <!--     <img class="loader" id="h1_successive_large_image_tests" hidden/> -->
+                                <!--     <p id="h1_successive_large_image_test_results" class="test_results"></p> -->
+                                <!-- </td> -->
+                            </tr>
+                            <tr>
+                                <!-- Loading large images (1MB) with HTTP/2 in succession -->
+                                <td>
+                                    <label class="loader">Successive Large Images (1MB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/2</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h2_successive_large_image_tests" hidden/>
+                                    <p id="h2_successive_large_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_successive_large_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_successive_large_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
 
-                        <div class="network_h1_test_div">
-                            <button id="h1_test">Test HTTP/1.1</button>
-                        </div>
-                        <div class="network_h2_test_div">
-                            <button id="h2_test">Test HTTP/2</button>
-                        </div>
+                                <!-- <td> -->
+                                <!--     <img class="loader" id="h2_successive_large_image_tests" hidden/> -->
+                                <!--     <p id="h2_successive_large_image_test_results" class="test_results"></p> -->
+                                <!-- </td> -->
+                            </tr>
+                            <tr>
+                                <!-- Loading large images (1MB) with HTTP/1.1 concurrently -->
+                                <td>
+                                    <label class="loader">Concurrent Large Images (1MB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/1.1</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h1_concurrent_large_image_tests" hidden/>
+                                    <p id="h1_concurrent_large_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_concurrent_large_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_concurrent_large_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
+
+                                <!-- <td> -->
+                                <!--     <img class="loader" id="h1_concurrent_large_image_tests" hidden/> -->
+                                <!--     <p id="h1_concurrent_large_image_test_results" class="test_results"></p> -->
+                                <!-- </td> -->
+                            </tr>
+                            <tr>
+                                <!-- Loading large images (1MB) with HTTP/2 concurrently -->
+                                <td>
+                                    <label class="loader">Concurrent Large Images (1MB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/2</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h2_concurrent_large_image_tests" hidden/>
+                                    <p id="h2_concurrent_large_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_concurrent_large_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_concurrent_large_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
+
+                                <!-- <td> -->
+                                <!--     <img class="loader" id="h2_concurrent_large_image_tests" hidden/> -->
+                                <!--     <p id="h2_concurrent_large_image_test_results" class="test_results"></p> -->
+                                <!-- </td> -->
+                            </tr>
+                            <tr>
+                                <!-- Loading small images (5KB) with HTTP/1 in succession -->
+                                <td>
+                                    <label class="loader">Successive Small Images (5KB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/1.1</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h1_successive_small_image_tests" hidden/>
+                                    <p id="h1_successive_small_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_successive_small_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_successive_small_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
+
+                                <!-- <td> -->
+                                <!--     <img class="loader" id="h1_successive_small_image_tests" hidden/> -->
+                                <!--     <p id="h1_successive_small_image_test_results" class="test_results"></p> -->
+                                <!-- </td> -->
+                            </tr>
+                            <tr>
+                                <!-- Loading small images (5KB) with HTTP/2 in succession -->
+                                <td>
+                                    <label class="loader">Successive Small Images (5KB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/2</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h2_successive_small_image_tests" hidden/>
+                                    <p id="h2_successive_small_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_successive_small_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_successive_small_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
+                                <!-- <td> -->
+                                <!--     <img class="loader" id="h2_successive_small_image_tests" hidden/> -->
+                                <!--     <p id="h2_successive_small_image_test_results" class="test_results"></p> -->
+                                <!-- </td> -->
+                            </tr>
+                            <tr>
+                                <!-- Loading small images (5KB) with HTTP/1 concurrently -->
+                                <td>
+                                    <label class="loader">Concurrent Small Images (5KB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/1.1</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h1_concurrent_small_image_tests" hidden/>
+                                    <p id="h1_concurrent_small_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_concurrent_small_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_concurrent_small_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
+                                <!-- <td> -->
+                                <!--     <img class="loader" id="h1_concurrent_small_image_tests" hidden/> -->
+                                <!--     <p id="h1_concurrent_small_image_test_results" class="test_results"></p> -->
+                                <!-- </td> -->
+                            </tr>
+                            <tr>
+                                <!-- Loading small images (5KB) with HTTP/2 concurrently -->
+                                <td>
+                                    <label class="loader">Concurrent Small Images (5KB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/2</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h2_concurrent_small_image_tests" hidden/>
+                                    <p id="h2_concurrent_small_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_concurrent_small_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_concurrent_small_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
+                                <!-- <td> -->
+                                <!--     <img class="loader" id="h2_concurrent_small_image_tests" hidden/> -->
+                                <!--     <p id="h2_concurrent_small_image_test_results" class="test_results"></p> -->
+                                <!-- </td> -->
+                            </tr>
+                        </table>
                     </div>
-
                 </div>
 
-                <br><br>
-
-                <div class="size_selector">
-                
-                    <select id="size" name="size">
-                        <option value="1">1 KB</option>
-                        <option value="5">5 KB</option>
-                        <option value="15">15 KB</option>
-                        <option value="25">25 KB</option>
-                        <option value="50">50 KB</option>
-                        <option value="75">75 KB</option>
-                        <option value="100">100 KB</option>
-                    </select>
-                    <input id="num" type="text" placeholder="Number of Objects"></input>
-                    <br>
-                    <div class="buttons">
-                        <button id="start" disabled>Start Test</button>
-                        <button id="reset" disabled>Reset Test</button>
-                    </div>
-
-                </div>
-
-
-                <br><br>
-
-                <div id="testing_platform" class="tester" hidden>
-
-                </div>
-
-                <div id="footer" class="footer">
-                    <div class="info_div">
-                        <button id="more_info">More Info</button>
-                    </div>
-                    <!-- <div class="abouts"> -->
-                    <!--     <a href="http://aqualab.cs.northwestern.edu"><img height="100px" width="100px" src="imgs/AquaLab1.png" /></a> -->
-                    <!-- </div> -->
-                    
                 </div>
             </div>
         </div>
+        <div id="div4" class="footer">
+            <span class="footer_span"><a href="http://aqualab.cs.northwestern.edu">Aqualab</a><img src="imgs/aqualab2.png" style="height:30px;margin-left:20px;margin-right:20px;vertical-align:middle;"><a href="http://aqualab.cs.northwestern.edu"></a> 2019.</span>
+        </div>
     </body>
     <script src="./boomerang-master/boomerang.js" type="text/javascript"></script>
+    <script src="./js/utilities.js" type="text/javascript"></script>
     <script src="./boomerang-master/plugins/bw.js" type="text/javascript"></script>
     <script src="./boomerang-master/plugins/navtiming.js" type="text/javascript"></script>
-    <script src="js/controller.js" type="text/javascript"></script>
+    <script src="./boomerang-master/plugins/dns.js" type="text/javascript"></script>
+    <script src="js/tester.js" type="text/javascript"></script>
 </html>

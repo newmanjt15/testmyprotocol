@@ -22,18 +22,23 @@
 
     </head>
     <body class="body">
-        <h1>HTTP Version Testing Platform</h1>
-        <h2>Project Overview</h2>
-        <p>
+        <h1 class="header">HTTP Version Testing Platform</h1>
+        <h2 class="header">Project Overview</h2>
+        <p class="text">
             This project challenges head on the <i>prix fixe</i> menu of application level protocols. The current networking stack in browsers is determined for all users statically with very little adaptation. We argue for a more flexible approach to web browsing where the networking stack may dynamically adapt to the varying network conditions, server configurations, and website compositions that exist in todays web. This testing platform tracks network conditions and downloads different configurations of images sizes and number of images to learn how to predict the performance of websites from your unique vantage point.
         </p>
-        <h2>Background</h2>
-        <p>
+        <h2 class="header">Background</h2>
+        <p class="text">
             As HTTP continues to develop and evolve, there is a common misconception that each subsequent version of HTTP will improve the previous, especially in terms of performance. However, there have been many studies demonstrating that this is not the case. Indeed, there are very specific use cases where HTTP/2 performs notably worse than HTTP/1.1. One specific case concerns large objects and highlights how HTTP/2 multiplexing exacerbates the problems of HTTP level Head-of-Line Blocking (HOL) where any spike in latency or packet loss event will be propagated across all other objects sharing that same TCP connection.
         </p>
-        <h2>Network Measurements</h2>
-        <p>
+        <h2 class="header">Network Measurements</h2>
+        <p class="text">
         We use the open-source tool <a href="https://github.com/akamai/boomerang">Boomerang</a> to measure network metrics at the HTTP level. The tool measures the time it takes to download specific objects from the server in order to calculate the network latency and the bandwidth from your machine to our servers. Latency is a major factory in QoE and is especially important when addressing the potential performance challenges of Head-of-Line Blocking.
         </p>
+        <div id="div4" class="footer">
+            <span class="footer_span"><a href="http://aqualab.cs.northwestern.edu">Aqualab</a><img src="imgs/aqualab2.png" style="height:30px;margin-left:20px;margin-right:20px;vertical-align:middle;"><a href="http://aqualab.cs.northwestern.edu"></a> 2019.</span>
+        </div>
+
     </body>
+
 </html>
