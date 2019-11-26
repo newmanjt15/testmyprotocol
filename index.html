@@ -39,7 +39,7 @@
                 <div class="test_frame" id="test_frame" hidden>
                     <div class="test_steps" id="test_steps">
                         <h2>Network Tests</h2>
-                        <table border="2" class="table_results">
+                        <table border="2" class="table_results" id="network_table">
                             <tr>
                                 <th scope="col">Protocol</th>
                                 <th scope="col">Latency Mean (ms)</th>
@@ -96,7 +96,7 @@
                             </tr>
                         </table>
                         <h2>HTTP Object Tests</h2>
-                        <table border="2" class="table_results">
+                        <table border="2" class="table_results" id="http_object_table">
                             <tr>
                                 <th scope="col">Test</th>
                                 <th scope="col">Protocol</th>
@@ -293,13 +293,104 @@
                                 <!-- </td> -->
                             </tr>
                         </table>
+                        <h2>IFrame Tests</h2>
+                        <table id="iframe_tests_table" border="2" class="table_results">
+                            <tr>
+                                <th scope="col">Test</th>
+                                <th scope="col">Protocol</th>
+                                <th scope="col">Total Time (ms)</th>
+                                <th scope="col">Load Time Mean (ms)</th>
+                                <th scope="col">Load Time StdDev (ms)</th>
+                            </tr>
+
+                            <tr>
+                                <!-- Loading large images in iframe -->
+                                <td>
+                                    <label class="loader">Large Images in Iframe (1MB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/1.1</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h1_iframe_large_image_tests" hidden/>
+                                    <p id="h1_iframe_large_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_iframe_large_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_iframe_large_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- Loading small images in iframe -->
+                                <td>
+                                    <label class="loader">Small Images in Iframe (5KB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/1.1</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h1_iframe_small_image_tests" hidden/>
+                                    <p id="h1_iframe_small_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_iframe_small_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h1_iframe_small_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <!-- Loading large images in iframe -->
+                                <td>
+                                    <label class="loader">Large Images in Iframe (1MB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/2</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h2_iframe_large_image_tests" hidden/>
+                                    <p id="h2_iframe_large_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_iframe_large_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_iframe_large_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- Loading small images in iframe -->
+                                <td>
+                                    <label class="loader">Small Images in Iframe (5KB)</label>
+                                </td>
+                                <td>
+                                    <label>HTTP/2</label>
+                                </td>
+                                <td>
+                                    <img class="loader" id="h2_iframe_small_image_tests" hidden/>
+                                    <p id="h2_iframe_small_image_test_results_total_time" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_iframe_small_image_test_results_load_time_mean" class="test_results"></p>
+                                </td>
+                                <td>
+                                    <p id="h2_iframe_small_image_test_results_load_time_std" class="test_results"></p>
+                                </td>
+                            </tr>
+
+
+                        </table>
+                        <iframe id="test_iframe" hidden></iframe>
                     </div>
                 </div>
 
                 </div>
             </div>
         </div>
-        <div id="div4" class="footer">
+        <div id="div4" class="footer" style="color: white;">
             <span class="footer_span"><a href="http://aqualab.cs.northwestern.edu">Aqualab</a><img src="imgs/aqualab2.png" style="height:30px;margin-left:20px;margin-right:20px;vertical-align:middle;"><a href="http://aqualab.cs.northwestern.edu"></a> 2019.</span>
         </div>
     </body>
@@ -308,5 +399,6 @@
     <script src="./boomerang-master/plugins/bw.js" type="text/javascript"></script>
     <script src="./boomerang-master/plugins/navtiming.js" type="text/javascript"></script>
     <script src="./boomerang-master/plugins/dns.js" type="text/javascript"></script>
+    <script src="js/translators.js" type="text/javascript"></script>
     <script src="js/tester.js" type="text/javascript"></script>
 </html>

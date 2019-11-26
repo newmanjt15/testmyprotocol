@@ -19,7 +19,7 @@ function getUrlParam(parameter, defaultvalue){
 function humanFileSize(bytes, si) {
     var thresh = si ? 1000 : 1024;
     if(Math.abs(bytes) < thresh) {
-        return bytes +  B;
+        return bytes +  'B';
     }
     var units = si
         ? ['kB','MB','GB','TB','PB','EB','ZB','YB']

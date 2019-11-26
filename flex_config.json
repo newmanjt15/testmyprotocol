@@ -1,0 +1,28 @@
+{
+    "0": {
+        "proto": "HTTP/1.1",
+        "mode": "iframe",
+        "resource_type": "js",
+        "resource_num": "6",
+        "resource_size": "-1",
+        "key": "http1ifjs",
+        "results_name": "h1_iframe_js_test_results",
+        "reporting_name": "h1_iframe_js",
+        "key_name": "h1_iframe_js",
+        "name": "h1_iframe_js_tests",
+        "test_name": "JS in IFrame"
+    },
+    "1": {
+        "proto": "HTTP/1.1",
+        "mode": "iframe",
+        "resource_type": "font",
+        "resource_num": "6",
+        "resource_size": "-1",
+        "key": "http1iff",
+        "results_name": "h1_iframe_font_test_results",
+        "reporting_name": "h1_iframe_font",
+        "key_name": "h1_iframe_font",
+        "name": "h1_ifame_font_tests",
+        "test_name": "Font in IFrame"
+    }
+}
